@@ -10,14 +10,12 @@ const cors = require('cors');
 
 
 
+// Routes
+const warehousesRoutes = require('./routes/warehouses');
+app.use('/', warehousesRoutes);
 
-
-
-
-
-
-
-
+const inventoriesRoutes = require('./routes/inventories');
+app.use('/', inventoriesRoutes);
 
 
 
