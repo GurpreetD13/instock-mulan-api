@@ -4,18 +4,18 @@ const cors = require('cors');
 
 
 
-
-
-
+// Middleware:
+app.use(cors());
+app.use(express.json());
 
 
 
 // Routes
 const warehousesRoutes = require('./routes/warehouses');
-app.use('/', warehousesRoutes);
+app.use('/warehouses', warehousesRoutes);
 
 const inventoriesRoutes = require('./routes/inventories');
-app.use('/', inventoriesRoutes);
+app.use('/inventories', inventoriesRoutes);
 
 
 
