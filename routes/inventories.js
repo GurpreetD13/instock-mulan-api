@@ -12,11 +12,6 @@ const getAllItems = () => {
 };
 
 
-
-
-
-
-
 // '/inventories/' route
 router.route('/')
     .get((req, res) => {
@@ -24,13 +19,18 @@ router.route('/')
     })
 
 
+router.get('/:id', (req, res) => {
+    const singleItem = getAllItems().find(item => item.id === req.params.id)
 
+    if(!singleItem) {
+        res.status(404).json({
+            message: ("Item not found")
+        })
+        return;
+    }
 
-
-
-
-
-
+    res.status(201).json(singleItem)
+})
 
 
 module.exports = router;
