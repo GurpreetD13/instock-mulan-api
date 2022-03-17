@@ -24,12 +24,12 @@ router.get('/:id', (req, res) => {
 
     if(!singleItem) {
         res.status(404).json({
-            message: ("Item not found")
+            message: "Item does not exist"
         })
         return;
     }
 
-    res.status(201).json(singleItem)
+    res.status(200).json(singleItem)
 })
 
 
