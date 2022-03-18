@@ -3,13 +3,20 @@ const router = express.Router();
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 
-// '/inventories' route 
-
 // Function to get All inventory items
 const getAllItems = () => {
     const allInventoryItems = fs.readFileSync('./data/inventories.json');
     return JSON.parse(allInventoryItems);
 };
+
+const getAllWarehouses = () => {
+    const allWarehouses = fs.readFileSync('./data/warehouses.json');
+    return JSON.parse(allWarehouses);
+};
+
+const writeInventoryData = (inventoryData) => {
+    fs.writeFileSync('./data/inventories.json', JSON.stringify(inventoryData))
+}
 
 
 // '/inventories/' route
@@ -18,7 +25,21 @@ router.route('/')
         res.status(200).json(getAllItems())
     })
     .post((req, res) => {
-        console.log(req.body);
+        const warehouses =  getAllWarehouses();
+        const inventory = getAllItems();
+        const newItem = {
+            id: uuidv4(),
+            warehouseID: warehouses.find(warehouse => warehouse.name === req.body.itemWarehouse).id,
+            warehouseName: req.body.itemWarehouse,
+            itemName: req.body.itemName,
+            description: req.body.itemDescription,
+            category: req.body.itemCategory,
+            status: req.body.itemIsAvailable === 'in-stock' ? 'In Stock' : 'Out of Stock',
+            quantity: req.body.itemQuantity,
+        }
+        inventory.push(newItem);
+        writeInventoryData(inventory);
+        res.status(201).send('Success');
     })
 
 
