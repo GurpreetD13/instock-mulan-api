@@ -17,6 +17,9 @@ router.route('/')
     .get((req, res) => {
         res.status(200).json(getAllItems())
     })
+    .post((req, res) => {
+        console.log(req.body);
+    })
 
 
 router.get('/:id', (req, res) => {
