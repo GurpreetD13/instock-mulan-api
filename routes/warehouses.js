@@ -27,9 +27,11 @@ router.route("/")
     })
 
     .post((req, res) => {
-
-        // validation here first!!
-
+        // validation
+        if (!req.body.name || !req.body.address || !req.body.city || !req.body.country ||
+            !req.body.contact.name, !req.body.contact.position || !req.body.contact.phone || !req.body.contact.email) {
+            res.status(404).send('Please make sure no fields are empty, and entered a vaild phone number and email format in request' )
+        };
         const newWarehouse = {
             "id": uuidv4(),
             "name": req.body.name,
@@ -47,9 +49,9 @@ router.route("/")
         let updatedWarehouses = fetchData();
         updatedWarehouses.push(newWarehouse);
 
-        // saveWarehouseData(updatedWarehousesData);
+        saveWarehouseData(updatedWarehouses);
 
-        res.send(201).json(newWarehouse);
+        res.status(201).json(newWarehouse);
     });
 
 
