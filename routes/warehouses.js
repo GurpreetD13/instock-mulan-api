@@ -13,6 +13,12 @@ const fetchInv = () => {
   return JSON.parse(inventory);
 };
 
+// Function to Save Updated warehouse data which will be used in warehouse POST and PUT requests
+const saveWarehouseData = (updatedWarehousesData) => {
+    fs.writeFileSync('./data/warehouses.json', JSON.stringify(updatedWarehousesData))
+};
+
+
 // '/warehouses' route
 
 router.route("/").get((req, res) => {
