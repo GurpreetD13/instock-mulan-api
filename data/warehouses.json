@@ -2,7 +2,7 @@
   {
     "id": "2922c286-16cd-4d43-ab98-c79f698aeab0",
     "name": "Manhattan",
-    "address": "503 Broadway",
+    "address": "503 Broadway Avenue",
     "city": "New York",
     "country": "USA",
     "contact": {
@@ -54,7 +54,7 @@
   {
     "id": "89898957-04ba-4bd0-9f5c-a7aea7447963",
     "name": "Santa Monica",
-    "address": "520 Broadway",
+    "address": "520 Broadway Avenue",
     "city": "Santa Monica",
     "country": "USA",
     "contact": {
