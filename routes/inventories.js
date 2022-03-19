@@ -27,7 +27,13 @@ router.route('/')
     .post((req, res) => {
         const warehouses =  getAllWarehouses();
         const inventory = getAllItems();
-        const newItem = {
+
+       
+        
+        if (!req.body.id || !itemWarehouse || !req.body.itemName || !req.body.itemDescription || !req.body.itemCategory) {
+            res.status(204).send('Not enought form data');
+        } else {
+         const newItem = {
             id: uuidv4(),
             warehouseID: warehouses.find(warehouse => warehouse.name === req.body.itemWarehouse).id,
             warehouseName: req.body.itemWarehouse,
@@ -39,7 +45,8 @@ router.route('/')
         }
         inventory.push(newItem);
         writeInventoryData(inventory);
-        res.status(201).send('Success');
+        res.status(201).send('Success');   
+        }
     })
 
 
