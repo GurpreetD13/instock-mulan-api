@@ -20,16 +20,14 @@ router.route('/')
 
 
     
-// router.delete('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
 
-//         const warehouses=warehouses.filter(warehouse => warehouse.id === req.params.id);
+        // const warehouses=warehouses.filter(warehouse => warehouse.id === req.params.id);
 
-//         warehouses.splice()
-
-//         res.status(202).json({
-//             message: "Warehouse successfully deleted"
-//         })
-//     })
+        res.status(202).json({
+            message: "Warehouse successfully deleted"
+        })
+    })
 
 
 
