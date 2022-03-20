@@ -72,25 +72,11 @@ router
   })
 
   .delete("/:id", (req, res) => {
-    for (let i = 0; i < inv.length; i++) {
-      let currentInv = inv[i];
 
-      let newInv = inv.filter((item) => item.id !== req.params.id);
+    const updatedInv = fetchData().filter((inv) => inv.id !== req.params.id)
+    saveWarehouseData(updatedInv);
+    res.status(204).send('Inventory item deleted')
 
-      if (currentInv.id == req.params.id) {
-        fs.writeFile(
-          "./data/inventories.json",
-          JSON.stringify(newInv),
-          (err) => {
-            if (err) {
-              console.log(err);
-            }
-          }
-        );
-
-        return res.send("Deleted " + req.params.id);
-      }
-    }
   });
 
 module.exports = router;
