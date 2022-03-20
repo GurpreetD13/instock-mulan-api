@@ -72,11 +72,9 @@ router
   })
 
   .delete("/:id", (req, res) => {
-
-    const updatedInv = fetchData().filter((inv) => inv.id !== req.params.id)
-    saveWarehouseData(updatedInv);
+    const updatedInv = getAllItems().filter((inv) => inv.id !== req.params.id)
+    writeInventoryData(updatedInv);
     res.status(204).send('Inventory item deleted')
-
   });
 
 module.exports = router;
