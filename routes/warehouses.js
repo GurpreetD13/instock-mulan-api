@@ -15,12 +15,48 @@ const fetchInv = () => {
   return JSON.parse(inventory);
 };
 
+// Function to Save Updated warehouse data which will be used in warehouse POST and PUT requests
+const saveWarehouseData = (updatedWarehousesData) => {
+    fs.writeFileSync('./data/warehouses.json', JSON.stringify(updatedWarehousesData))
+};
+
 
 // '/warehouses' route
 
-router.route("/").get((req, res) => {
-  res.status(200).send(fetchData());
-});
+router.route("/")
+    .get((req, res) => {
+        res.status(200).send(fetchData());
+    })
+
+    .post((req, res) => {
+        // validation
+        if (!req.body.name || !req.body.address || !req.body.city || !req.body.country ||
+            !req.body.contact.name, !req.body.contact.position || !req.body.contact.phone || !req.body.contact.email) {
+            res.status(404).send('Please make sure no fields are empty, and entered a vaild phone number and email format in request' )
+        };
+        const newWarehouse = {
+            "id": uuidv4(),
+            "name": req.body.name,
+            "address": req.body.address,
+            "city": req.body.city,
+            "country": req.body.country,
+            "contact": {
+                "name": req.body.contact.name,
+                "position": req.body.contact.position,
+                "phone": req.body.contact.phone,
+                "email": req.body.contact.email,
+            }
+        };
+        // add/push newWarehouseData to All warehouses data array and save updatedWarehouses data array
+        let updatedWarehouses = fetchData();
+        updatedWarehouses.push(newWarehouse);
+
+        saveWarehouseData(updatedWarehouses);
+
+        res.status(201).json(newWarehouse);
+    });
+
+
 
 router.get("/:id", (req, res) => {
   const warehouseById = fetchData().find(
@@ -40,159 +76,15 @@ router.get("/:id", (req, res) => {
 });
 
 
-
 router.delete("/:id", (req, res) => {
 
     const updatedWarehouses = fetchData().filter((warehouse) => warehouse.id !== req.params.id)
-    // console.log(updatedWarehouses)
 
     saveWarehouseData(updatedWarehouses);
 
     res.status(204).send('Warehouse deleted')
 
-
-
-    // for (let i = 0; i < warehouse.length; i++) {
-    //   let currentWarehouse = warehouse[i];
-
-    //   let newWarehouse = warehouse.filter((item) => item.id !== req.params.id);
-
-    //   if (currentWarehouse.id == req.params.id) {
-    //     fs.writeFile(
-    //       "./data/warehouses.json",
-    //       JSON.stringify(newWarehouse),
-    //       (err) => {
-    //         if (err) {
-    //           console.log(err);
-    //         }
-    //       }
-    //     );
-
-    //     return res.send("Deleted " + req.params.id);
-    //   }
-    // }
-
   });
 
 
-// router.delete('/:id', (req, res) => {
-
-//         // for (let i = 0; i < warehouse.length; i++) {
-//       let currentWarehouse = warehouses.filter(warehouse => warehouse.id !== req.params.id);
-
-//       let newWarehouse = warehouse.filter((item) => item.id !== req.params.id);
-
-//       if (currentWarehouse.id == req.params.id) {
-//         fs.writeFile(
-//           "./data/warehouses.json",
-//           JSON.stringify(newWarehouse),
-//           (err) => {
-//             if (err) {
-//               console.log(err);
-//             }
-//           }
-//         );
-
-//         return res.send("Deleted " + req.params.id);
-//       }
-//     // }
-
-
-//     // const warehouses = ware.filter(warehouse => warehouse.id !== req.params.id);    
-
-//     // let id= req.params.id
-//     // res.status(200).send(warehouse[id])
-//     // warehouses.findById
-
-
-//     //   warehouses = ware.filter(warehouse => warehouse.id !== req.params.id);
-//     //     res.status(202).json({
-//     //     message: "successfully deleted warehouse"
-//     // })
-
-
-//     //  const deleted = warehouses.find(warehouse => warehouse.id === req.params.id);
-
-//     //     if(deleted) {
-//     //     warehouses = warehouses.filter(warehouse => warehouse.id !== req.params.id);
-//     //    res.status(200).send('Warehouse deleted');
-//     // } else {
-//     //   res.status(404)
-//     //   .json({ message: "Warehouse not found" })
-//     // }
-
-    
-//     // const warehouseId = warehouse.find(warehouse => warehouse.id === req.params.id);
-//     // warehouses.splice(warehousesId, 1);
-
-    
-    // return res.send('Warehouse deleted');
-
-    
-// })
-
-
 module.exports = router;
-
-
-
-
-//    warehouses = warehouses.filter(warehouse => warehouse.id !== req.params.id);
-
-    // const warehouseById = fetchData().find(
-    //     (warehouseById) => warehouseById.id === req.params.id
-    //   );
-    // const warehouseById = fetchData().find(
-    //     (warehouseById) => warehouseById.id === req.params.id
-    //   );
-
-    // const warehouseId= Number(req.params.id);
-
-//    const newWarehouses = warehouses.filter(warehouse => warehouse.id !== req.params.id);
-
-//    if(!newWarehouses) {
-//        response.status(500).send('Warehouse not found.');
-//     } else {
-//       warehouses = newWarehouses;
-//       response.send(warehouses);
-//     }
-   
-// warehouse.remove({
-//     id: req.params.id
-// })
-
-// res.status(202).json(warehouses)
-
-
- // const { id } =req.params;
-
-    // const deleted = warehouses.find(warehouse => warehouse.id === req.params.id);
-
-    // const warehouseById = fetchData().find(
-    //     (warehouseById) => warehouseById.id === req.params.id
-    //   );
-
-    // warehouses = warehouses.filter(warehouse => warehouse.id !== req.params.id);
-
-    //    if(deleted) {
-    //     warehouses = warehouses.filter(warehouse => warehouse.id !== req.params.id);
-    //    res.status(200).send('Warehouse deleted');
-    // } else {
-    //   res.status(404)
-    //   .json({ message: "Warehouse not found" })
-    // }
-
-    // if(warehouseById) {
-    //     warehouses = warehouseById.filter(warehouseById => warehouseById.id !== req.params.id);
-    //    res.status(200).send('Warehouse deleted');
-    // } else {
-    //   res.status(404)
-    //   .json({ message: "Warehouse not found" })
-    // }
-
-
-   
-    
-    // res.status(202).json({
-    //     message: "successfully deleted warehouse"
-    // })
