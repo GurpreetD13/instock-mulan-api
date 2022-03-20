@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
+// const ware =require('../data/warehouses.json');
+const warehouse =require('../data/warehouses.json')
 
 const fetchData = () => {
   const warehouses = fs.readFileSync("./data/warehouses.json");
@@ -56,10 +58,6 @@ router.route("/")
 
 
 
-
-
-
-
 router.get("/:id", (req, res) => {
   const warehouseById = fetchData().find(
     (warehouseById) => warehouseById.id === req.params.id
@@ -76,5 +74,17 @@ router.get("/:id", (req, res) => {
     res.status(200).json([warehouseById, warehouseInv]);
   }
 });
+
+
+router.delete("/:id", (req, res) => {
+
+    const updatedWarehouses = fetchData().filter((warehouse) => warehouse.id !== req.params.id)
+
+    saveWarehouseData(updatedWarehouses);
+
+    res.status(204).send('Warehouse deleted')
+
+  });
+
 
 module.exports = router;
