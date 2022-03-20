@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
+// const ware =require('../data/warehouses.json');
+const warehouse =require('../data/warehouses.json')
 
 const fetchData = () => {
   const warehouses = fs.readFileSync("./data/warehouses.json");
@@ -78,7 +80,7 @@ router.get("/:id", (req, res) => {
 })
 
 
-.delete("/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
 
     const updatedWarehouses = fetchData().filter((warehouse) => warehouse.id !== req.params.id)
 
