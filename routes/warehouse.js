@@ -24,6 +24,16 @@ const saveWarehouseData = (updatedWarehousesData) => {
 };
 
 
+
+validatePhoneNumber = (number) => {
+  var phoneNumberPattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  if(!number.match(phoneNumberPattern)) {
+    
+    return false;
+  } 
+  return true;
+}
+
 // '/warehouses' route
 
 router.route("/")
@@ -34,8 +44,9 @@ router.route("/")
     .post((req, res) => {
         // validation
         if (!req.body.name || !req.body.address || !req.body.city || !req.body.country ||
-            !req.body.contact.name || !req.body.contact.position || !req.body.contact.phone || !req.body.contact.email) {
-            res.status(404).send('Please make sure no fields are empty, and entered a vaild phone number and email format in request' )
+            !req.body.contact.name || !req.body.contact.position || !req.body.contact.phone || !req.body.contact.email || !validatePhoneNumber(req.body.contact.phone)) {
+            res.status(404).send('Please make sure no fields are empty, and entered a vaild phone number and email format in request');
+            return;
         };
         const newWarehouse = {
             "id": uuidv4(),
@@ -50,10 +61,11 @@ router.route("/")
                 "email": req.body.contact.email,
             }
         };
+
+
         // add/push newWarehouseData to All warehouses data array and save updatedWarehouses data array
         let updatedWarehouses = fetchData();
         updatedWarehouses.push(newWarehouse);
-
         saveWarehouseData(updatedWarehouses);
 
         res.status(201).json(newWarehouse);

@@ -17,15 +17,6 @@ const writeInventoryData = (inventoryData) => {
 };
 
 
-validatePhoneNumber = (number) => {
-  var phoneNumberPattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-  if(number.match(phoneNumberPattern)) {
-    return false
-  } return true;
-}
-
-
-
 
 // '/inventories/' route
 router.route("/")
