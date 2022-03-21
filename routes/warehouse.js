@@ -15,27 +15,38 @@ const fetchInv = () => {
 };
 
 const writeInventoryData = (inventoryData) => {
-  fs.writeFileSync('./data/inventories.json', JSON.stringify(inventoryData))
+  fs.writeFileSync('./data/inventories.json', JSON.stringify(inventoryData));
 }
 
 // Function to Save Updated warehouse data which will be used in warehouse POST and PUT requests
 const saveWarehouseData = (updatedWarehousesData) => {
-    fs.writeFileSync('./data/warehouses.json', JSON.stringify(updatedWarehousesData))
+    fs.writeFileSync('./data/warehouses.json', JSON.stringify(updatedWarehousesData));
 };
 
-
-
-validatePhoneNumber = (number) => {
+phoneNumberIsValid = (phoneNumber) => {
   var phoneNumberPattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-  if(!number.match(phoneNumberPattern)) {
-    
+  if(phoneNumber.match(phoneNumberPattern)) {
+    return true;
+  }
+  return false;
+}
+
+emailIsValid = (email) => {
+  var emailPattern = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+  if(email.match(emailPattern)) {
+    return true;
+  }
+  return false;
+}
+
+warehouseFormIsValid = (formBody) => {
+  if (!formBody.name || !formBody.address || !formBody.city || !formBody.country || !formBody.contact.name || !formBody.contact.position || !formBody.contact.phone || !formBody.contact.email) {
     return false;
-  } 
+  }
   return true;
 }
 
 // '/warehouses' route
-
 router.route("/")
     .get((req, res) => {
         res.status(200).send(fetchData());
@@ -43,47 +54,61 @@ router.route("/")
 
     .post((req, res) => {
         // validation
-        if (!req.body.name || !req.body.address || !req.body.city || !req.body.country ||
-            !req.body.contact.name || !req.body.contact.position || !req.body.contact.phone || !req.body.contact.email || !validatePhoneNumber(req.body.contact.phone)) {
-            res.status(404).send('Please make sure no fields are empty, and entered a vaild phone number and email format in request');
-            return;
+        if (!warehouseFormIsValid(req.body)) {
+            res.status(404).json({
+              message: 'Please make sure that there are no empty fields.'
+            });
+          return;
         };
+
+        if (!phoneNumberIsValid(req.body.contact.phone)) {
+            res.status(404).json({
+              message: 'Please enter a valid phone number.'
+            });
+          return;
+        };
+
+        if (!emailIsValid(req.body.contact.email)) {
+            res.status(404).json({
+              message: 'Please enter a valid email address.'
+            });
+          return;
+        };
+
         const newWarehouse = {
-            "id": uuidv4(),
-            "name": req.body.name,
-            "address": req.body.address,
-            "city": req.body.city,
-            "country": req.body.country,
-            "contact": {
-                "name": req.body.contact.name,
-                "position": req.body.contact.position,
-                "phone": req.body.contact.phone,
-                "email": req.body.contact.email,
+            id: uuidv4(),
+            name: req.body.name,
+            address: req.body.address,
+            city: req.body.city,
+            country: req.body.country,
+            contact: {
+                name: req.body.contact.name,
+                position: req.body.contact.position,
+                phone: req.body.contact.phone,
+                email: req.body.contact.email,
             }
         };
 
-
-        // add/push newWarehouseData to All warehouses data array and save updatedWarehouses data array
         let updatedWarehouses = fetchData();
         updatedWarehouses.push(newWarehouse);
         saveWarehouseData(updatedWarehouses);
-
-        res.status(201).json(newWarehouse);
+        
+        res.status(201).json({
+          id: newWareshouse.id,
+          status: 'success',
+        });
     });
 
 
 
 router.get("/:id", (req, res) => {
-  const warehouseById = fetchData().find(
-    (warehouseById) => warehouseById.id === req.params.id
-  );
-  const warehouseInv = fetchInv().filter(
-    (warehouseInv) => warehouseInv.warehouseID === req.params.id
-  );
+  const { id } = req.params;
+  const warehouseById = fetchData().find((warehouseById) => warehouseById.id === id);
+  const warehouseInv = fetchInv().filter((warehouseInv) => warehouseInv.warehouseID === id);
 
   if (!warehouseById) {
     res.status(404).json({
-      message: "No warehouse found by that ID!",
+      message: `Warehouse ${id} does not exist.`,
     });
   } else {
     res.status(200).json([warehouseById, warehouseInv]);
@@ -91,35 +116,48 @@ router.get("/:id", (req, res) => {
 })
 .put((req, res) => {
         const inventory = fetchInv();
-        const currentItemIndex = inventory.findIndex(item => item.id === req.body.itemId)
+        const currentItemIndex = inventory.findIndex(item => item.id === req.body.itemId);
 
-        if (!req.body.id || !req.body.name || !req.body.address || !req.body.city || !req.body.country || !req.body.contact.name || !req.body.contact.position || !req.body.contact.phone || !req.body.contact.email) {
-            res.status(404).send('Please fill all forms');
-        } else {
+        if (!warehouseFormIsValid(req.body)) {
+          res.status(404).json({
+            message: 'Please make sure that there are no empty fields.'
+          });
+          return;
+        };
 
-            const updatedItem = {
-                id: req.body.id,
-                name: req.body.name,
-                address: req.body.address,
-                city: req.body.city,
-                country: req.body.country,
-                contact: {
-                  name: req.body.contact.name,
-                  position: req.body.contact.position,
-                  phone: req.body.contact.phone,
-                  email: req.body.contact.email,
-                }
-            }
-            inventory[currentItemIndex] = updatedItem;
-            writeInventoryData(inventory);
-        }
+        if (!phoneNumberIsValid(req.body.contact.phone)) {
+            res.status(404).json({
+              message: 'Please enter a valid phone number.'
+            });
+          return;
+        };
+
+        if (!emailIsValid(req.body.contact.email)) {
+            res.status(404).json({
+              message: 'Please enter a valid email address.'
+            });
+          return;
+        };
+
+        const updatedItem = {
+          id: req.body.id,
+          name: req.body.name,
+          address: req.body.address,
+          city: req.body.city,
+          country: req.body.country,
+          contact: {
+            name: req.body.contact.name,
+            position: req.body.contact.position,
+            phone: req.body.contact.phone,
+            email: req.body.contact.email,
+          }
+        };
+        inventory[currentItemIndex] = updatedItem;
+        writeInventoryData(inventory);
     })
     .delete((req, res) => {
-
       const updatedWarehouses = fetchData().filter((warehouse) => warehouse.id !== req.params.id)
-  
       saveWarehouseData(updatedWarehouses);
-  
       res.status(204).send('Warehouse deleted')
   
     })
