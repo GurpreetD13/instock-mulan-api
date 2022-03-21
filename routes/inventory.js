@@ -16,9 +16,10 @@ const writeInventoryData = (inventoryData) => {
   fs.writeFileSync("./data/inventories.json", JSON.stringify(inventoryData));
 };
 
+
+
 // '/inventories/' route
-router
-  .route("/")
+router.route("/")
   .get((req, res) => {
     res.status(200).json(getAllItems());
   })
@@ -26,13 +27,16 @@ router
     const warehouses = getAllWarehouses();
     const inventory = getAllItems();
     if (
-      !req.body.id ||
-      !itemWarehouse ||
+      !req.body.itemWarehouse ||
       !req.body.itemName ||
       !req.body.itemDescription ||
       !req.body.itemCategory
     ) {
       res.status(204).send("Not enought form data");
+      console.log(req.body.itemWarehouse)
+      console.log(req.body.itemName)
+      console.log(req.body.itemDescription)
+      console.log(req.body.itemCategory)
     } else {
       const newItem = {
         id: uuidv4(),
@@ -43,10 +47,10 @@ router
         itemName: req.body.itemName,
         description: req.body.itemDescription,
         category: req.body.itemCategory,
-        status:
-          req.body.itemIsAvailable === "in-stock" ? "In Stock" : "Out of Stock",
+        status: req.body.itemIsAvailable ,
         quantity: req.body.itemQuantity,
       };
+      console.log(newItem);
       inventory.push(newItem);
       writeInventoryData(inventory);
       res.status(201).send("Success");
