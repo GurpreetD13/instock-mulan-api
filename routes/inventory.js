@@ -77,8 +77,8 @@ router
     });
 
 
-router
-  .get("/:id", (req, res) => {
+router.route("/:id")
+  .get((req, res) => {
     const singleItem = getAllItems().find((item) => item.id === req.params.id);
     if (!singleItem) {
       res.status(404).json({
@@ -88,8 +88,7 @@ router
     }
     res.status(200).json(singleItem);
   })
-
-  .delete("/:id", (req, res) => {
+  .delete((req, res) => {
     const updatedInv = getAllItems().filter((inv) => inv.id !== req.params.id)
     writeInventoryData(updatedInv);
     res.status(204).send('Inventory item deleted')
