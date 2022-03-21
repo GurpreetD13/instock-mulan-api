@@ -11,11 +11,11 @@ app.use(express.json());
 
 
 // Routes
-const warehousesRoutes = require('./routes/warehouses');
-app.use('/warehouses', warehousesRoutes);
+const warehousesRoutes = require('./routes/warehouse');
+app.use('/warehouse', warehousesRoutes);
 
-const inventoriesRoutes = require('./routes/inventories');
-app.use('/inventories', inventoriesRoutes);
+const inventoriesRoutes = require('./routes/inventory');
+app.use('/inventory', inventoriesRoutes);
 
 
 
