@@ -6,7 +6,7 @@ exports.getAll = () => {
     return JSON.parse(allInventoryItems);
 }
 
-exports.saveAll = () => {
+exports.saveAll = (inventoryData) => {
     fs.writeFileSync("./data/inventories.json", JSON.stringify(inventoryData));
 }
 
