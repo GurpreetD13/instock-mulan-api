@@ -92,7 +92,7 @@ exports.getSingleWarehouse = (req, res) => {
 
 exports.editWarehouse = (req, res) => {
     const updatedWarehouses = warehouseModel.getAll();
-    const currentWarehouseIndex = updatedWarehouses.findIndex(warehouse => warehouse.id === req.body.warehouseID);
+    const currentWarehouseIndex = updatedWarehouses.findIndex(warehouse => warehouse.id === req.params.id);
 
     if (!warehouseFormIsValid(req.body)) {
       res.status(404).json({
@@ -116,18 +116,26 @@ exports.editWarehouse = (req, res) => {
     };
 
     const updatedWarehouse = {
-      id: req.body.id,
-      name: req.body.name,
-      address: req.body.address,
-      city: req.body.city,
-      country: req.body.country,
-      contact: {
-        name: req.body.contact.name,
-        position: req.body.contact.position,
-        phone: req.body.contact.phone,
-        email: req.body.contact.email,
-      }
-    };
+        // key: req.params.id,
+        id: req.params.id,
+        name: req.body.name,
+        address: req.body.address,
+        city: req.body.city,
+        country: req.body.country,
+        contact: {
+            name: req.body.contact.name,
+            position: req.body.contact.position,
+            phone: req.body.contact.phone,
+            email: req.body.contact.email,
+        }
+    }; 
     updatedWarehouses[currentWarehouseIndex] = updatedWarehouse;
     warehouseModel.saveAll(updatedWarehouses);
+    res.status(204).send('Warehouse edited')
+}
+
+exports.deleteWarehouse = (req, res) => {
+  const updatedWarehouses = warehouseModel.getAll().filter((warehouse) => warehouse.id !== req.params.id)
+  warehouseModel.saveAll(updatedWarehouses);
+  res.status(204).send('Warehouse deleted')
 }

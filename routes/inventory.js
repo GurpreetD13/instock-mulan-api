@@ -5,11 +5,11 @@ const inventoryController = require("../controllers/inventory-controller");
 //Inventory Routes
 router.route("/")
   .get(inventoryController.getAllInventory)
-  .post(inventoryController.createNewItem)
-  .put(inventoryController.updateItem);
-
+  .post(inventoryController.createNewItem);
+  
 router.route("/:id")
   .get(inventoryController.getSingleItem)
-  .delete(inventoryController.removeItem);
+  .delete(inventoryController.removeItem)
+  .put(inventoryController.updateItem);
 
 module.exports = router;

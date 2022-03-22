@@ -19,7 +19,3 @@ exports.getOneById = (id) => {
 exports.getSingleWarehouseInventory = (id) => {
     return inventoryModel.getAll().filter(item => item.warehouseID === id);
 }
-
-
-
-// const warehouseInv = fetchInv().filter((warehouseInv) => warehouseInv.warehouseID === id);
