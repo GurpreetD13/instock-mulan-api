@@ -7,7 +7,7 @@ exports.getAll = () => {
 }
 
 exports.saveAll = (inventoryData) => {
-    fs.writeFileSync("./data/inventories.json", JSON.stringify(inventoryData));
+    fs.writeFileSync(filePath, JSON.stringify(inventoryData));
 }
 
 exports.getOneById = (id) => {

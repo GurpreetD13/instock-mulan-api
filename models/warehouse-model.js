@@ -1,5 +1,6 @@
 const fs = require("fs");
 const filePath = './data/warehouses.json';
+const inventoryModel = require('../models/inventory-model');
 
 exports.getAll = () => {
     const allWarehouses = fs.readFileSync(filePath);
@@ -14,3 +15,11 @@ exports.getOneById = (id) => {
     const warhouses = exports.getAll();
     return warhouses.find(warhouse => warhouse.id === id);
 }
+
+exports.getSingleWarehouseInventory = (id) => {
+    return inventoryModel.getAll().filter(item => item.warehouseID === id);
+}
+
+
+
+// const warehouseInv = fetchInv().filter((warehouseInv) => warehouseInv.warehouseID === id);
