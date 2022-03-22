@@ -116,7 +116,6 @@ exports.editWarehouse = (req, res) => {
     };
 
     const updatedWarehouse = {
-        // key: req.params.id,
         id: req.params.id,
         name: req.body.name,
         address: req.body.address,
