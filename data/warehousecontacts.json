@@ -1,56 +1,56 @@
 [
     {
-        "name": "Parmin Aujla",
-        "position": "Warehouse Manager",
-        "phone": "+1 (646) 123-1234",
-        "email": "paujla@instock.com"
+        "ContactName": "Parmin Aujla",
+        "ContactPosition": "Warehouse Manager",
+        "ContactPhone": "+1 (646) 123-1234",
+        "ContactEmail": "paujla@instock.com"
     },
     {
-        "name": "Greame Lyon",
-        "position": "Warehouse Manager",
-        "phone": "+1 (646) 123-1234",
-        "email": "glyon@instock.com"
+        "ContactName": "Greame Lyon",
+        "ContactPosition": "Warehouse Manager",
+        "ContactPhone": "+1 (646) 123-1234",
+        "ContactEmail": "glyon@instock.com"
     },
     {
-        "name": "Brad MacDonald",
-        "position": "Warehouse Manager",
-        "phone": "+1 (646) 123-1234",
-        "email": "bmcdonald@instock.com"
+        "ContactName": "Brad MacDonald",
+        "ContactPosition": "Warehouse Manager",
+        "ContactPhone": "+1 (646) 123-1234",
+        "ContactEmail": "bmcdonald@instock.com"
     },
     {
-        "name": "Gary Wong",
-        "position": "Warehouse Manager",
-        "phone": "+1 (646) 123-1234",
-        "email": "gwong@instock.com"
+        "ContactName": "Gary Wong",
+        "ContactPosition": "Warehouse Manager",
+        "ContactPhone": "+1 (646) 123-1234",
+        "ContactEmail": "gwong@instock.com"
     },
     {
-        "name": "Sharon Ng",
-        "position": "Warehouse Manager",
-        "phone": "+1 (646) 123-1234",
-        "email": "sng@instock.com"
+        "ContactName": "Sharon Ng",
+        "ContactPosition": "Warehouse Manager",
+        "ContactPhone": "+1 (646) 123-1234",
+        "ContactEmail": "sng@instock.com"
     },
     {
-        "name": "Daniel Bachu",
-        "position": "Warehouse Manager",
-        "phone": "+1 (646) 123-1234",
-        "email": "dbachu@instock.com"
+        "ContactName": "Daniel Bachu",
+        "ContactPosition": "Warehouse Manager",
+        "ContactPhone": "+1 (646) 123-1234",
+        "ContactEmail": "dbachu@instock.com"
     },
     {
-        "name": "Alana Thomas",
-        "position": "Warehouse Manager",
-        "phone": "+1 (646) 123-1234",
-        "email": "athomas@instock.com"
+        "ContactName": "Alana Thomas",
+        "ContactPosition": "Warehouse Manager",
+        "ContactPhone": "+1 (646) 123-1234",
+        "ContactEmail": "athomas@instock.com"
     },
     {
-        "name": "Vanessa Mendoza",
-        "position": "Warehouse Manager",
-        "phone": "+1 (646) 123-1234",
-        "email": "vmendoza@instock.com"
+        "ContactName": "Vanessa Mendoza",
+        "ContactPosition": "Warehouse Manager",
+        "ContactPhone": "+1 (646) 123-1234",
+        "ContactEmail": "vmendoza@instock.com"
     },
     {
-        "name": "fasdkfljasdlkj",
-        "position": "kljlkjlj",
-        "phone": "6464646464",
-        "email": "sdfasdf@asdfg.com"
+        "ContactName": "fasdkfljasdlkj",
+        "ContactPosition": "kljlkjlj",
+        "ContactPhone": "6464646464",
+        "ContactEmail": "sdfasdf@asdfg.com"
     }
 ]
