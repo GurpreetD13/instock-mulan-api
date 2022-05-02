@@ -20,7 +20,7 @@ exports.up = function(knex) {
             table.integer('ItemQuantity').notNullable();
             table.string('ItemWarehouse').notNullable();
             table
-                .integer('Item_Warehouse_Id')
+                .integer('WarehouseId')
                 .unsigned()
                 .references('WarehouseId')
                 .inTable('Warehouse')
@@ -34,7 +34,7 @@ exports.up = function(knex) {
             table.string('ContactPhone').notNullable();
             table.string('ContactEmail').notNullable();
             table
-                .integer('Contact_Warehouse_Id')
+                .integer('ContactWarehouseId')
                 .unsigned()
                 .references('WarehouseId')
                 .inTable('Warehouse')
@@ -48,5 +48,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  return knex.schema.dropTable('WarehouseContact').dropTable('Inventory').dropTable('Warehouse');
+  return knex.schema.dropTable('Warehouse');
 };
