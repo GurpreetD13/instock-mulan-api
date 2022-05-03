@@ -26,7 +26,7 @@ phoneNumberIsValid = (phoneNumber) => {
 
 
 exports.getAllWarehouses = (req, res) => {
-    res.status(200).send(warehouseModel.getAll());
+    warehouseModel.getAll(res);
 }
 
 exports.createNewWarehouse = (req, res) => {
