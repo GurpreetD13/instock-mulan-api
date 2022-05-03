@@ -33,16 +33,7 @@ exports.createNewWarehouse = (req, res) => {
 
 exports.getSingleWarehouse = (req, res) => {
     const { id } = req.params;
-    const warehouseById = warehouseModel.getOneById(id);
-    const warehouseInv = warehouseModel.getSingleWarehouseInventory(id);
-  
-    if (!warehouseById) {
-      res.status(404).json({
-        message: `Warehouse ${id} does not exist.`,
-      });
-    } else {
-      res.status(200).json([warehouseById, warehouseInv]);
-    }
+    warehouseModel.getOneById(id, res);
 }
 
 exports.editWarehouse = (req, res) => {

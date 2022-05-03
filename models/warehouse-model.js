@@ -61,9 +61,43 @@ exports.saveNew = (req, res) => {
         })
 }
 
-exports.getOneById = (id) => {
-    const warhouses = exports.getAll();
-    return warhouses.find(warhouse => warhouse.id === id);
+exports.getOneById = (id, res) => {
+    
+    knex('Warehouse')
+        .select(
+            'Warehouse.WarehouseId',
+            'Warehouse.WarehouseName',
+            'Warehouse.WarehouseAddress',
+            'Warehouse.WarehouseCity',
+            'Warehouse.WarehouseCountry',
+            'WarehouseContact.ContactName',
+            'WarehouseContact.ContactPosition',
+            'WarehouseContact.ContactPhone',
+            'WarehouseContact.ContactEmail'
+        )
+        .join('WarehouseContact', 'Warehouse.WarehouseId', 'WarehouseContact.ContactWarehouseId')
+        .where({'Warehouse.WarehouseId': id})
+        .first()
+        .then(warehouseData => {
+            knex('item')
+                .select(
+                    'ItemId',
+                    'ItemName',
+                    'ItemDescription',
+                    'ItemCategory',
+                    'ItemStatus',
+                    'ItemQuantity',
+                    'ItemWarehouseId'
+                )
+                .where({'ItemWarehouseId': id})
+                .then(warehouseInventoryData => {
+                    res.status(200).json([warehouseData, warehouseInventoryData]);
+                })
+        })
+        .catch(err => {
+            return res.status(500).send("Error finding warehouse");
+        })
+
 }
 
 exports.getSingleWarehouseInventory = (id) => {
