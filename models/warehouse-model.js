@@ -51,7 +51,7 @@ exports.saveNew = (req, res) => {
         })
         .catch(err => {
             return res.status(500).send({
-                message: "Error Creating warehosue"
+                message: "Error Creating warehouse"
             })
         })
 }

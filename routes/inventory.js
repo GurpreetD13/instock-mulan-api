@@ -8,7 +8,7 @@ router.route("/")
   .post(inventoryController.createNewItem);
   
 router.route("/:id")
-  .get(inventoryController.getSingleItem)
+  .get(inventoryController.getSelectedItem)
   .put(inventoryController.updateItem)
   .delete(inventoryController.removeItem);
 

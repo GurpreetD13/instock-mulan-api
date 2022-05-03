@@ -18,15 +18,9 @@ exports.createNewItem = (req, res) => {
  
 }
 
-exports.getSingleItem = (req, res) => {
-    const singleItem = inventoryModel.getAll().find((item) => item.id === req.params.id);
-    if (!singleItem) {
-      res.status(404).json({
-        message: "Item does not exist",
-      });
-      return;
-    }
-    res.status(200).json(singleItem);
+exports.getSelectedItem = (req, res) => {
+  const { id } = req.params;
+  inventoryModel.getSelectedItem(id, res);
 }
 
 

@@ -9,6 +9,11 @@ exports.getAll = (res) => {
         .then(data => {
             res.status(200).json(data);
         })
+        .catch(err => {
+            return res.status(500).send({
+                message: "Error Retrieving Items"
+            })
+        })
 
 }
 
@@ -38,7 +43,18 @@ exports.saveItem = (req, res) => {
       
 }
 
-exports.getOneById = (id) => {
-    const inventoryItems = exports.getAll();
-    return inventoryItems.find(item => item.id === id);
+exports.getSelectedItem = (id, res) => {
+    knex('Item')
+        .select('*')
+        .where({'ItemId': id})
+        .first()
+        .then(data => {
+            return res.status(200).json(data);
+        })
+        .catch(err => {
+            return res.status(500).send({
+                message: "Error Retrieving Item"
+            })
+        })
+
 }
