@@ -26,27 +26,14 @@ exports.getSelectedItem = (req, res) => {
 
 
 exports.updateItem = (req, res) => {
-    const warehouses = warehouseModel.getAll();
-    const inventory = inventoryModel.getAll();
-    const currentItemIndex = inventory.findIndex(item => item.id === req.body.itemId)
+  const { id } = req.params;
 
-    if (!formValidators.isInventoryFormValid(req.body)) {
-        res.status(204).send("All form values must be entered!");
-        return;
+  if (!formValidators.isInventoryFormValid(req.body)) {
+    res.status(204).send("All form values must be entered!");
+      return;
     } 
-     
-    const updatedItem = {
-    id: req.body.itemId,
-    warehouseID: warehouses.find(warehouse => warehouse.name === req.body.itemWarehouse).id,
-    warehouseName: req.body.itemWarehouse,
-    itemName: req.body.itemName,
-    description: req.body.itemDescription,
-    category: req.body.itemCategory,
-    status: req.body.itemIsAvailable,
-    quantity: Number(req.body.itemQuantity),
-    }
-    inventory[currentItemIndex] = updatedItem;
-    inventoryModel.saveAll(inventory);
+    
+  inventoryModel.updateItem(id, req, res)
 }
 
 exports.removeItem  = (req, res) => {

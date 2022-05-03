@@ -56,5 +56,32 @@ exports.getSelectedItem = (id, res) => {
                 message: "Error Retrieving Item"
             })
         })
+}
 
+exports.updateItem = (id, req, res) => {
+
+    const updatedItem = {
+        ItemId: req.body.itemId,
+        ItemWarehouseId: req.body.warehouseId,
+        ItemWarehouse: req.body.itemWarehouse,
+        ItemName: req.body.itemName,
+        ItemDescription: req.body.itemDescription,
+        ItemCategory: req.body.itemCategory,
+        ItemStatus: req.body.itemIsAvailable,
+        ItemQuantity: Number(req.body.itemQuantity),
+    }
+    
+    knex('Item')
+        .update(updatedItem)
+        .where({'ItemId': id})
+        .then(() => {
+            res.status(200).send({
+                message: "Item Updated Successfully"
+            })
+        })
+        .catch(() => {
+            return res.status(500).send({
+                message: "Error Updating Item"
+            })
+        })
 }
