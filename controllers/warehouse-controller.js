@@ -1,29 +1,5 @@
 const warehouseModel = require('../models/warehouse-model');
-const { v4: uuidv4 } = require("uuid");
-
-phoneNumberIsValid = (phoneNumber) => {
-    var phoneNumberPattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-    if(phoneNumber.match(phoneNumberPattern)) {
-      return true;
-    }
-    return false;
-  }
-  
-  emailIsValid = (email) => {
-    var emailPattern = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
-    if(email.match(emailPattern)) {
-      return true;
-    }
-    return false;
-  }
-  
-  warehouseFormIsValid = (formBody) => {
-    if (!formBody.name || !formBody.address || !formBody.city || !formBody.country || !formBody.contact.name || !formBody.contact.position || !formBody.contact.phone || !formBody.contact.email) {
-      return false;
-    }
-    return true;
-  }
-
+const formValidators = require('../utils/formValidators');
 
 exports.getAllWarehouses = (req, res) => {
     warehouseModel.getAll(res);
@@ -31,21 +7,21 @@ exports.getAllWarehouses = (req, res) => {
 
 exports.createNewWarehouse = (req, res) => {
     // validation
-    if (!warehouseFormIsValid(req.body)) {
+    if (!formValidators.warehouseFormIsValid(req.body)) {
         res.status(404).json({
           message: 'Please make sure that there are no empty fields.'
         });
       return;
     };
 
-    if (!phoneNumberIsValid(req.body.contact.phone)) {
+    if (!formValidators.phoneNumberIsValid(req.body.contact.phone)) {
         res.status(404).json({
           message: 'Please enter a valid phone number.'
         });
       return;
     };
 
-    if (!emailIsValid(req.body.contact.email)) {
+    if (!formValidators.emailIsValid(req.body.contact.email)) {
         res.status(404).json({
           message: 'Please enter a valid email address.'
         });
@@ -53,8 +29,6 @@ exports.createNewWarehouse = (req, res) => {
     };
 
     warehouseModel.saveNew(req, res);
-    
- 
 }
 
 exports.getSingleWarehouse = (req, res) => {

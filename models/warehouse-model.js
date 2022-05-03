@@ -6,8 +6,6 @@ const inventoryModel = require('../models/inventory-model');
 const knex = require("knex")(require('../knexfile'));
 
 exports.getAll = (res) => {
-    // const allWarehouses = fs.readFileSync(filePath);
-    // return JSON.parse(allWarehouses);
 
     knex('Warehouse')
         .select(
@@ -23,13 +21,10 @@ exports.getAll = (res) => {
         )
         .join('WarehouseContact', 'Warehouse.WarehouseId', 'WarehouseContact.ContactWarehouseId')
         .then(data => {
-            res.json(data);
-            return;
-            
+            return res.json(data);
         })
         .catch(err => {
-            res.status(500).send("Error retrieving all posts");
-            return;
+            return res.status(500).send("Error retrieving all posts");
         })
 }
 
