@@ -3,54 +3,63 @@
         "ContactName": "Parmin Aujla",
         "ContactPosition": "Warehouse Manager",
         "ContactPhone": "+1 (646) 123-1234",
-        "ContactEmail": "paujla@instock.com"
+        "ContactEmail": "paujla@instock.com",
+        "ContactWarehouseId": 1
     },
     {
         "ContactName": "Greame Lyon",
         "ContactPosition": "Warehouse Manager",
         "ContactPhone": "+1 (646) 123-1234",
-        "ContactEmail": "glyon@instock.com"
+        "ContactEmail": "glyon@instock.com",
+        "ContactWarehouseId": 2
     },
     {
         "ContactName": "Brad MacDonald",
         "ContactPosition": "Warehouse Manager",
         "ContactPhone": "+1 (646) 123-1234",
-        "ContactEmail": "bmcdonald@instock.com"
+        "ContactEmail": "bmcdonald@instock.com",
+        "ContactWarehouseId": 3
     },
     {
         "ContactName": "Gary Wong",
         "ContactPosition": "Warehouse Manager",
         "ContactPhone": "+1 (646) 123-1234",
-        "ContactEmail": "gwong@instock.com"
+        "ContactEmail": "gwong@instock.com",
+        "ContactWarehouseId": 4
     },
     {
         "ContactName": "Sharon Ng",
         "ContactPosition": "Warehouse Manager",
         "ContactPhone": "+1 (646) 123-1234",
-        "ContactEmail": "sng@instock.com"
+        "ContactEmail": "sng@instock.com",
+        "ContactWarehouseId": 5
     },
     {
         "ContactName": "Daniel Bachu",
         "ContactPosition": "Warehouse Manager",
         "ContactPhone": "+1 (646) 123-1234",
-        "ContactEmail": "dbachu@instock.com"
+        "ContactEmail": "dbachu@instock.com",
+        "ContactWarehouseId": 6
     },
     {
         "ContactName": "Alana Thomas",
         "ContactPosition": "Warehouse Manager",
         "ContactPhone": "+1 (646) 123-1234",
-        "ContactEmail": "athomas@instock.com"
+        "ContactEmail": "athomas@instock.com",
+        "ContactWarehouseId": 7
     },
     {
         "ContactName": "Vanessa Mendoza",
         "ContactPosition": "Warehouse Manager",
         "ContactPhone": "+1 (646) 123-1234",
-        "ContactEmail": "vmendoza@instock.com"
+        "ContactEmail": "vmendoza@instock.com",
+        "ContactWarehouseId": 8
     },
     {
         "ContactName": "fasdkfljasdlkj",
         "ContactPosition": "kljlkjlj",
         "ContactPhone": "6464646464",
-        "ContactEmail": "sdfasdf@asdfg.com"
+        "ContactEmail": "sdfasdf@asdfg.com",
+        "ContactWarehouseId": 9
     }
 ]

@@ -2,9 +2,20 @@ const fs = require("fs");
 const filePath = './data/warehouses.json';
 const inventoryModel = require('../models/inventory-model');
 
+const knex = require("knex")(require('../knexfile'));
+
 exports.getAll = () => {
     const allWarehouses = fs.readFileSync(filePath);
     return JSON.parse(allWarehouses);
+
+    // knex('Warehouse')
+    //     .select(
+    //         'WarehouseId',
+    //         'WarehouseName',
+    //         'WarehouseAddress',
+    //         'WarehouseCity',
+    //         'WarehouseCountry'
+    //     )
 }
 
 exports.saveAll = (warehouses) => {
