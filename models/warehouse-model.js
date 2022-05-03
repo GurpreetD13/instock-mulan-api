@@ -1,5 +1,3 @@
-const inventoryModel = require('../models/inventory-model');
-
 const knex = require("knex")(require('../knexfile'));
 
 exports.getAll = (res) => {
@@ -18,9 +16,9 @@ exports.getAll = (res) => {
         )
         .join('WarehouseContact', 'Warehouse.WarehouseId', 'WarehouseContact.ContactWarehouseId')
         .then(data => {
-            return res.json(data);
+            return res.status(200).json(data);
         })
-        .catch(err => {
+        .catch(() => {
             return res.status(500).send("Error retrieving all posts");
         })
 }
@@ -92,7 +90,7 @@ exports.getOneById = (id, res) => {
                     res.status(200).json([warehouseData, warehouseInventoryData]);
                 })
         })
-        .catch(err => {
+        .catch(() => {
             return res.status(500).send("Error finding warehouse");
         })
 
@@ -116,19 +114,46 @@ exports.editWarehouse = (id, req, res) => {
     knex('Warehouse')
         .update(updatedWarehouse)
         .where({'WarehouseId': id})
-        .then(data => {
+        .then(() => {
             knex('WarehouseContact')
                 .update(updatedWarehouseContact)
                 .where({'ContactWarehouseId': id})
                 .then(() =>{
-                    res.status(201).send({
+                    res.status(200).send({
                         message: "Warehouse Updated Successfully"
                     })
                 })
         })
-        .catch(err => {
+        .catch(() => {
             return res.status(500).send({
                 message: "Error Updating warehosue"
             })
         })
+}
+
+exports.deleteWarehouse = (id, req, res) => {
+    knex('Item')
+        .where({'ItemWarehouseId': id})
+        .del()
+        .then(() => {
+            knex('WarehouseContact')
+            .where({'ContactWarehouseId': id})
+            .del()
+            .then(() => {
+                knex('Warehouse')
+                .where({'WarehouseId': id})
+                .del()
+                .then(() => {
+                    res.status(201).send({
+                        message: "Warehouse Added Successfully"
+                    })
+                })
+            })
+        })
+        .catch(() => {
+            return res.status(500).send({
+                message: "Error Deleting warehosue"
+            })
+        })
+
 }

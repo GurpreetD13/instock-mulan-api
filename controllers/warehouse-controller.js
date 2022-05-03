@@ -8,21 +8,21 @@ exports.getAllWarehouses = (req, res) => {
 exports.createNewWarehouse = (req, res) => {
     // validation
     if (!formValidators.warehouseFormIsValid(req.body)) {
-        res.status(404).json({
+        res.status(406).json({
           message: 'Please make sure that there are no empty fields.'
         });
       return;
     };
 
     if (!formValidators.phoneNumberIsValid(req.body.contact.phone)) {
-        res.status(404).json({
+        res.status(406).json({
           message: 'Please enter a valid phone number.'
         });
       return;
     };
 
     if (!formValidators.emailIsValid(req.body.contact.email)) {
-        res.status(404).json({
+        res.status(406).json({
           message: 'Please enter a valid email address.'
         });
       return;
@@ -38,24 +38,23 @@ exports.getSingleWarehouse = (req, res) => {
 
 exports.editWarehouse = (req, res) => {
     const { id } = req.params;
-    console.log('yes')
 
     if (!formValidators.warehouseFormIsValid(req.body)) {
-      res.status(404).json({
+      res.status(406).json({
         message: 'Please make sure that there are no empty fields.'
       });
       return;
     };
 
     if (!formValidators.phoneNumberIsValid(req.body.contact.phone)) {
-        res.status(404).json({
+        res.status(406).json({
           message: 'Please enter a valid phone number.'
         });
       return;
     };
 
     if (!formValidators.emailIsValid(req.body.contact.email)) {
-        res.status(404).json({
+        res.status(406).json({
           message: 'Please enter a valid email address.'
         });
       return;
@@ -66,7 +65,6 @@ exports.editWarehouse = (req, res) => {
 }
 
 exports.deleteWarehouse = (req, res) => {
-  const updatedWarehouses = warehouseModel.getAll().filter((warehouse) => warehouse.id !== req.params.id)
-  warehouseModel.saveAll(updatedWarehouses);
-  res.status(204).send('Warehouse deleted')
+  const { id } = req.params;
+  warehouseModel.deleteWarehouse(id, req, res);
 }
