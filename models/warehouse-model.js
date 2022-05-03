@@ -33,8 +33,37 @@ exports.getAll = (res) => {
         })
 }
 
-exports.saveAll = (warehouses) => {
-    fs.writeFileSync(filePath, JSON.stringify(warehouses));
+exports.saveNew = (req, res) => {
+    
+    const newWarehouse = {
+        WarehouseName: req.body.name,
+        WarehouseAddress: req.body.address,
+        Warehousecity: req.body.city,
+        WarehouseCountry: req.body.country,
+    };
+
+    knex('Warehouse')
+        .insert(newWarehouse)
+        .then(data => {
+            knex('WarehouseContact')
+                .insert({
+                    ContactName: req.body.contact.name,
+                    ContactPosition: req.body.contact.position,
+                    ContactPhone: req.body.contact.phone,
+                    ContactEmail: req.body.contact.email, 
+                    ContactWarehouseId: data[0]
+                })
+                .then(() =>{
+                    res.status(201).send({
+                        message: "Warehouse Added Successfully"
+                    })
+                })
+        })
+        .catch(err => {
+            return res.status(500).send({
+                message: "Error Creating warehosue"
+            })
+        })
 }
 
 exports.getOneById = (id) => {

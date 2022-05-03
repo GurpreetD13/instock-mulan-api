@@ -52,28 +52,9 @@ exports.createNewWarehouse = (req, res) => {
       return;
     };
 
-    const newWarehouse = {
-        id: uuidv4(),
-        name: req.body.name,
-        address: req.body.address,
-        city: req.body.city,
-        country: req.body.country,
-        contact: {
-            name: req.body.contact.name,
-            position: req.body.contact.position,
-            phone: req.body.contact.phone,
-            email: req.body.contact.email,
-        }
-    };
-
-    const updatedWarehouses = warehouseModel.getAll();
-    updatedWarehouses.push(newWarehouse);
-    warehouseModel.saveAll(updatedWarehouses);
+    warehouseModel.saveNew(req, res);
     
-    res.status(201).json({
-      id: newWarehouse.id,
-      status: 'success',
-    });
+ 
 }
 
 exports.getSingleWarehouse = (req, res) => {
