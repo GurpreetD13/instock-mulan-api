@@ -7,6 +7,17 @@ exports.getAllInventory = (req, res) => {
     inventoryModel.getAll(res);
 }
 
+exports.createNewItem = (req, res) => {
+
+  if (!formValidators.isInventoryFormValid(req.body)) {
+    res.status(204).send("All form values must be entered!");
+    return;
+  } 
+ 
+  inventoryModel.saveItem(req, res);
+ 
+}
+
 exports.getSingleItem = (req, res) => {
     const singleItem = inventoryModel.getAll().find((item) => item.id === req.params.id);
     if (!singleItem) {
@@ -18,34 +29,7 @@ exports.getSingleItem = (req, res) => {
     res.status(200).json(singleItem);
 }
 
-exports.createNewItem = (req, res) => {
 
-    const warehouses = warehouseModel.getAll();
-    const inventory = inventoryModel.getAll();
-
-    if (!formValidators.isInventoryFormValid(req.body)) {
-      res.status(204).send("All form values must be entered!");
-      return;
-    } 
-    
-    const newItem = {
-    id: uuidv4(),
-    warehouseID: warehouses.find((warehouse) => warehouse.name === req.body.itemWarehouse).id,
-    warehouseName: req.body.itemWarehouse,
-    itemName: req.body.itemName,
-    description: req.body.itemDescription,
-    category: req.body.itemCategory,
-    status: req.body.itemIsAvailable ,
-    quantity: req.body.itemQuantity,
-    };
-
-    inventory.push(newItem);
-    inventoryModel.saveAll(inventory);
-    res.status(201).send({
-        id: newItem.id,
-        status: 'Success'
-    });  
-}
 
 exports.updateItem = (req, res) => {
     const warehouses = warehouseModel.getAll();
