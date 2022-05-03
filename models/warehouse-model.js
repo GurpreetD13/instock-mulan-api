@@ -145,7 +145,7 @@ exports.deleteWarehouse = (id, req, res) => {
                 .del()
                 .then(() => {
                     res.status(201).send({
-                        message: "Warehouse Added Successfully"
+                        message: "Warehouse Deleted Successfully"
                     })
                 })
             })

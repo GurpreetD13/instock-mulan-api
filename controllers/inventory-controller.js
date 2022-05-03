@@ -32,12 +32,11 @@ exports.updateItem = (req, res) => {
     res.status(204).send("All form values must be entered!");
       return;
     } 
-    
+
   inventoryModel.updateItem(id, req, res)
 }
 
 exports.removeItem  = (req, res) => {
-    const updatedInv = inventoryModel.getAll().filter((inv) => inv.id !== req.params.id)
-    inventoryModel.saveAll(updatedInv);
-    res.status(204).send('Inventory item deleted')
+  const { id } = req.params;
+  inventoryModel.removeItem(id, req, res);
 }

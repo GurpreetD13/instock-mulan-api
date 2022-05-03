@@ -68,7 +68,7 @@ exports.updateItem = (id, req, res) => {
         ItemDescription: req.body.itemDescription,
         ItemCategory: req.body.itemCategory,
         ItemStatus: req.body.itemIsAvailable,
-        ItemQuantity: Number(req.body.itemQuantity),
+        ItemQuantity: req.body.itemQuantity,
     }
     
     knex('Item')
@@ -82,6 +82,22 @@ exports.updateItem = (id, req, res) => {
         .catch(() => {
             return res.status(500).send({
                 message: "Error Updating Item"
+            })
+        })
+}
+
+exports.removeItem = (id, req, res) => {
+    knex('Item')
+        .where({'ItemId': id})
+        .del()
+        .then(() => {
+            res.status(201).send({
+                message: "Item Deleted Successfully"
+            })
+        })
+        .catch(err => {
+            return res.status(500).send({
+                message: "Error Deleting Item"
             })
         })
 }
