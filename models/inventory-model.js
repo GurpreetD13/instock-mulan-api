@@ -1,9 +1,15 @@
+const res = require("express/lib/response");
 const fs = require("fs");
 const filePath = './data/inventories.json';
+const knex = require("knex")(require('../knexfile'));
 
-exports.getAll = () => {
-    const allInventoryItems = fs.readFileSync(filePath);
-    return JSON.parse(allInventoryItems);
+exports.getAll = (res) => {
+    knex('Item')
+        .select('*')
+        .then(data => {
+            res.status(200).json(data);
+        })
+
 }
 
 exports.saveAll = (inventoryData) => {

@@ -14,8 +14,15 @@ exports.emailIsValid = (email) => {
     return false;
 }
   
-  exports.warehouseFormIsValid = (formBody) => {
+exports.warehouseFormIsValid = (formBody) => {
     if (!formBody.name || !formBody.address || !formBody.city || !formBody.country || !formBody.contact.name || !formBody.contact.position || !formBody.contact.phone || !formBody.contact.email) {
+      return false;
+    }
+    return true;
+}
+
+exports.isInventoryFormValid = (inventoryForm) => {
+    if (!inventoryForm.itemWarehouse || !inventoryForm.itemName || !inventoryForm.itemDescription || !inventoryForm.itemCategory) {
       return false;
     }
     return true;

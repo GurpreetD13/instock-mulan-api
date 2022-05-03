@@ -1,16 +1,10 @@
 const inventoryModel = require('../models/inventory-model');
 const warehouseModel = require('../models/warehouse-model');
 const { v4: uuidv4 } = require("uuid");
-
-const isInventoryFormValid = (inventoryForm) => {
-    if (!inventoryForm.itemWarehouse || !inventoryForm.itemName || !inventoryForm.itemDescription || !inventoryForm.itemCategory) {
-      return false;
-    }
-    return true;
-}
+const formValidators = require('../utils/formValidators');
 
 exports.getAllInventory = (req, res) => {
-    res.status(200).json(inventoryModel.getAll());
+    inventoryModel.getAll(res);
 }
 
 exports.getSingleItem = (req, res) => {
@@ -29,7 +23,7 @@ exports.createNewItem = (req, res) => {
     const warehouses = warehouseModel.getAll();
     const inventory = inventoryModel.getAll();
 
-    if (!isInventoryFormValid(req.body)) {
+    if (!formValidators.isInventoryFormValid(req.body)) {
       res.status(204).send("All form values must be entered!");
       return;
     } 
@@ -58,7 +52,7 @@ exports.updateItem = (req, res) => {
     const inventory = inventoryModel.getAll();
     const currentItemIndex = inventory.findIndex(item => item.id === req.body.itemId)
 
-    if (!isInventoryFormValid(req.body)) {
+    if (!formValidators.isInventoryFormValid(req.body)) {
         res.status(204).send("All form values must be entered!");
         return;
     } 
