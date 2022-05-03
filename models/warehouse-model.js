@@ -1,6 +1,3 @@
-const res = require("express/lib/response");
-const fs = require("fs");
-const filePath = './data/warehouses.json';
 const inventoryModel = require('../models/inventory-model');
 
 const knex = require("knex")(require('../knexfile'));
@@ -87,7 +84,8 @@ exports.getOneById = (id, res) => {
                     'ItemCategory',
                     'ItemStatus',
                     'ItemQuantity',
-                    'ItemWarehouseId'
+                    'ItemWarehouseId',
+                    'ItemWarehouse'
                 )
                 .where({'ItemWarehouseId': id})
                 .then(warehouseInventoryData => {
@@ -100,6 +98,37 @@ exports.getOneById = (id, res) => {
 
 }
 
-exports.getSingleWarehouseInventory = (id) => {
-    return inventoryModel.getAll().filter(item => item.warehouseID === id);
+exports.editWarehouse = (id, req, res) => {
+    const updatedWarehouse = {
+        WarehouseName: req.body.name,
+        WarehouseAddress: req.body.address,
+        Warehousecity: req.body.city,
+        WarehouseCountry: req.body.country,
+    }; 
+
+    const updatedWarehouseContact = {
+        ContactName: req.body.contact.name,
+        ContactPosition: req.body.contact.position,
+        ContactPhone: req.body.contact.phone,
+        ContactEmail: req.body.contact.email, 
+    }
+
+    knex('Warehouse')
+        .update(updatedWarehouse)
+        .where({'WarehouseId': id})
+        .then(data => {
+            knex('WarehouseContact')
+                .update(updatedWarehouseContact)
+                .where({'ContactWarehouseId': id})
+                .then(() =>{
+                    res.status(201).send({
+                        message: "Warehouse Updated Successfully"
+                    })
+                })
+        })
+        .catch(err => {
+            return res.status(500).send({
+                message: "Error Updating warehosue"
+            })
+        })
 }
