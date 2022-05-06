@@ -13,4 +13,13 @@
     charset: "utf8",
     timezone: 'etc'
   },
+  production: {
+    client: 'mysql',
+    connection: process.env.JAWSDB_URL,
+  },
 };
+
+module.exports = 
+  process.env.NODE_ENV === 'production'
+    ? connections.production
+    : connections.development;
