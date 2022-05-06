@@ -20,7 +20,7 @@
             table.integer('ItemQuantity').notNullable();
             table.string('ItemWarehouse').notNullable();
             table
-                .integer('WarehouseId')
+                .integer('ItemWarehouseId')
                 .unsigned()
                 .references('WarehouseId')
                 .inTable('Warehouse')

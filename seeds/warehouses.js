@@ -19,9 +19,6 @@ exports.seed = function (knex) {
       })
     })
     .then(() => {
-      return knex('WarehouseContact').del()
-      .then(() => {
-        return knex('WarehouseContact').insert(JSON.parse(fs.readFileSync(warehouseContactFilePath)))
-      })
+      return knex('WarehouseContact').insert(JSON.parse(fs.readFileSync(warehouseContactFilePath)))
     })
 };

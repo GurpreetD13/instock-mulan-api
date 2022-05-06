@@ -5,7 +5,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "In Stock",
         "ItemQuantity": 13,
-        "WarehouseId": 1,
+        "ItemWarehouseId": 1,
         "ItemWarehouse": "Manhattan"
     },
     {
@@ -14,7 +14,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 1,
+        "ItemWarehouseId": 1,
         "ItemWarehouse": "Manhattan"
     },
     {
@@ -23,7 +23,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "In Stock",
         "ItemQuantity": 2000,
-        "WarehouseId": 1,
+        "ItemWarehouseId": 1,
         "ItemWarehouse": "Manhattan"
     },
     {
@@ -32,7 +32,7 @@
         "itemCategory": "Health",
         "ItemStatus": "In Stock",
         "ItemQuantity": 4350,
-        "WarehouseId": 1,
+        "ItemWarehouseId": 1,
         "ItemWarehouse": "Manhattan"
     },
     {
@@ -41,7 +41,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "In Stock",
         "ItemQuantity": 10000,
-        "WarehouseId": 1,
+        "ItemWarehouseId": 1,
         "ItemWarehouse": "Manhattan"
     },
     {
@@ -50,7 +50,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "In Stock",
         "ItemQuantity": 800,
-        "WarehouseId": 1,
+        "ItemWarehouseId": 1,
         "ItemWarehouse": "Manhattan"
     },
     {
@@ -59,7 +59,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 1,
+        "ItemWarehouseId": 1,
         "ItemWarehouse": "Manhattan"
     },
     {
@@ -68,7 +68,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 1,
+        "ItemWarehouseId": 1,
         "ItemWarehouse": "Manhattan"
     },
     {
@@ -77,7 +77,7 @@
         "itemCategory": "Health",
         "ItemStatus": "In Stock",
         "ItemQuantity": 12500,
-        "WarehouseId": 1,
+        "ItemWarehouseId": 1,
         "ItemWarehouse": "Manhattan"
     },
     {
@@ -86,7 +86,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 2,
+        "ItemWarehouseId": 2,
         "ItemWarehouse": "Washington"
     },
     {
@@ -95,7 +95,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 2,
+        "ItemWarehouseId": 2,
         "ItemWarehouse": "Washington"
     },
     {
@@ -104,7 +104,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 2,
+        "ItemWarehouseId": 2,
         "ItemWarehouse": "Washington"
     },
     {
@@ -113,7 +113,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 2,
+        "ItemWarehouseId": 2,
         "ItemWarehouse": "Washington"
     },
     {
@@ -122,7 +122,7 @@
         "itemCategory": "Health",
         "ItemStatus": "In Stock",
         "ItemQuantity": 4000,
-        "WarehouseId": 2,
+        "ItemWarehouseId": 2,
         "ItemWarehouse": "Washington"
     },
     {
@@ -131,7 +131,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "In Stock",
         "ItemQuantity": 785,
-        "WarehouseId": 2,
+        "ItemWarehouseId": 2,
         "ItemWarehouse": "Washington"
     },
     {
@@ -140,7 +140,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "In Stock",
         "ItemQuantity": 987,
-        "WarehouseId": 2,
+        "ItemWarehouseId": 2,
         "ItemWarehouse": "Washington"
     },
     {
@@ -149,7 +149,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "In Stock",
         "ItemQuantity": 1185,
-        "WarehouseId": 2,
+        "ItemWarehouseId": 2,
         "ItemWarehouse": "Washington"
     },
     {
@@ -158,7 +158,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 2,
+        "ItemWarehouseId": 2,
         "ItemWarehouse": "Washington"
     },
     {
@@ -167,7 +167,7 @@
         "itemCategory": "Health",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 2,
+        "ItemWarehouseId": 2,
         "ItemWarehouse": "Washington"
     },
     {
@@ -176,7 +176,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 3,
+        "ItemWarehouseId": 3,
         "ItemWarehouse": "Jersey"
     },
     {
@@ -185,7 +185,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "In Stock",
         "ItemQuantity": 565,
-        "WarehouseId": 3,
+        "ItemWarehouseId": 3,
         "ItemWarehouse": "Jersey"
     },
     {
@@ -194,7 +194,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "In Stock",
         "ItemQuantity": 245,
-        "WarehouseId": 3,
+        "ItemWarehouseId": 3,
         "ItemWarehouse": "Jersey"
     },
     {
@@ -203,7 +203,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 3,
+        "ItemWarehouseId": 3,
         "ItemWarehouse": "Jersey"
     },
     {
@@ -212,7 +212,7 @@
         "itemCategory": "Health",
         "ItemStatus": "In Stock",
         "ItemQuantity": 209,
-        "WarehouseId": 3,
+        "ItemWarehouseId": 3,
         "ItemWarehouse": "Jersey"
     },
     {
@@ -221,7 +221,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 3,
+        "ItemWarehouseId": 3,
         "ItemWarehouse": "Jersey"
     },
     {
@@ -230,7 +230,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 3,
+        "ItemWarehouseId": 3,
         "ItemWarehouse": "Jersey"
     },
     {
@@ -239,7 +239,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "In Stock",
         "ItemQuantity": 125,
-        "WarehouseId": 3,
+        "ItemWarehouseId": 3,
         "ItemWarehouse": "Jersey"
     },
     {
@@ -248,7 +248,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "In Stock",
         "ItemQuantity": 123,
-        "WarehouseId": 3,
+        "ItemWarehouseId": 3,
         "ItemWarehouse": "Jersey"
     },
     {
@@ -257,7 +257,7 @@
         "itemCategory": "Health",
         "ItemStatus": "In Stock",
         "ItemQuantity": 863,
-        "WarehouseId": 3,
+        "ItemWarehouseId": 3,
         "ItemWarehouse": "Jersey"
     },
     {
@@ -266,7 +266,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "In Stock",
         "ItemQuantity": 50,
-        "WarehouseId": 4,
+        "ItemWarehouseId": 4,
         "ItemWarehouse": "San Fran"
     },
     {
@@ -275,7 +275,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 4,
+        "ItemWarehouseId": 4,
         "ItemWarehouse": "San Fran"
     },
     {
@@ -284,7 +284,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 4,
+        "ItemWarehouseId": 4,
         "ItemWarehouse": "San Fran"
     },
     {
@@ -293,7 +293,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 4,
+        "ItemWarehouseId": 4,
         "ItemWarehouse": "San Fran"
     },
     {
@@ -302,7 +302,7 @@
         "itemCategory": "Health",
         "ItemStatus": "In Stock",
         "ItemQuantity": 400,
-        "WarehouseId": 4,
+        "ItemWarehouseId": 4,
         "ItemWarehouse": "San Fran"
     },
     {
@@ -311,7 +311,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "In Stock",
         "ItemQuantity": 1275,
-        "WarehouseId": 4,
+        "ItemWarehouseId": 4,
         "ItemWarehouse": "San Fran"
     },
     {
@@ -320,7 +320,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "In Stock",
         "ItemQuantity": 5672,
-        "WarehouseId": 4,
+        "ItemWarehouseId": 4,
         "ItemWarehouse": "San Fran"
     },
     {
@@ -329,7 +329,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "In Stock",
         "ItemQuantity": 374,
-        "WarehouseId": 4,
+        "ItemWarehouseId": 4,
         "ItemWarehouse": "San Fran"
     },
     {
@@ -338,7 +338,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "In Stock",
         "ItemQuantity": 9875,
-        "WarehouseId": 4,
+        "ItemWarehouseId": 4,
         "ItemWarehouse": "San Fran"
     },
     {
@@ -347,7 +347,7 @@
         "itemCategory": "Health",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 4,
+        "ItemWarehouseId": 4,
         "ItemWarehouse": "San Fran"
     },
     {
@@ -356,7 +356,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 5,
+        "ItemWarehouseId": 5,
         "ItemWarehouse": "Santa Monica"
     },
     {
@@ -365,7 +365,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "In Stock",
         "ItemQuantity": 1895,
-        "WarehouseId": 5,
+        "ItemWarehouseId": 5,
         "ItemWarehouse": "Santa Monica"
     },
     {
@@ -374,7 +374,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 5,
+        "ItemWarehouseId": 5,
         "ItemWarehouse": "Santa Monica"
     },
     {
@@ -383,7 +383,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 5,
+        "ItemWarehouseId": 5,
         "ItemWarehouse": "Santa Monica"
     },
     {
@@ -392,7 +392,7 @@
         "itemCategory": "Health",
         "ItemStatus": "In Stock",
         "ItemQuantity": 4774,
-        "WarehouseId": 5,
+        "ItemWarehouseId": 5,
         "ItemWarehouse": "Santa Monica"
     },
     {
@@ -401,7 +401,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "In Stock",
         "ItemQuantity": 9872,
-        "WarehouseId": 5,
+        "ItemWarehouseId": 5,
         "ItemWarehouse": "Santa Monica"
     },
     {
@@ -410,7 +410,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "In Stock",
         "ItemQuantity": 3349,
-        "WarehouseId": 5,
+        "ItemWarehouseId": 5,
         "ItemWarehouse": "Santa Monica"
     },
     {
@@ -419,7 +419,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 5,
+        "ItemWarehouseId": 5,
         "ItemWarehouse": "Santa Monica"
     },
     {
@@ -428,7 +428,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "In Stock",
         "ItemQuantity": 2997,
-        "WarehouseId": 5,
+        "ItemWarehouseId": 5,
         "ItemWarehouse": "Santa Monica"
     },
     {
@@ -437,7 +437,7 @@
         "itemCategory": "Health",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 5,
+        "ItemWarehouseId": 5,
         "ItemWarehouse": "Santa Monica"
     },
     {
@@ -446,7 +446,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 6,
+        "ItemWarehouseId": 6,
         "ItemWarehouse": "Seattle"
     },
     {
@@ -455,7 +455,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "In Stock",
         "ItemQuantity": 607,
-        "WarehouseId": 6,
+        "ItemWarehouseId": 6,
         "ItemWarehouse": "Seattle"
     },
     {
@@ -464,7 +464,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "In Stock",
         "ItemQuantity": 1205,
-        "WarehouseId": 6,
+        "ItemWarehouseId": 6,
         "ItemWarehouse": "Seattle"
     },
     {
@@ -473,7 +473,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "In Stock",
         "ItemQuantity": 9863,
-        "WarehouseId": 6,
+        "ItemWarehouseId": 6,
         "ItemWarehouse": "Seattle"
     },
     {
@@ -482,7 +482,7 @@
         "itemCategory": "Health",
         "ItemStatus": "In Stock",
         "ItemQuantity": 1230,
-        "WarehouseId": 6,
+        "ItemWarehouseId": 6,
         "ItemWarehouse": "Seattle"
     },
     {
@@ -491,7 +491,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 6,
+        "ItemWarehouseId": 6,
         "ItemWarehouse": "Seattle"
     },
     {
@@ -500,7 +500,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 6,
+        "ItemWarehouseId": 6,
         "ItemWarehouse": "Seattle"
     },
     {
@@ -509,7 +509,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "In Stock",
         "ItemQuantity": 4508,
-        "WarehouseId": 6,
+        "ItemWarehouseId": 6,
         "ItemWarehouse": "Seattle"
     },
     {
@@ -518,7 +518,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "In Stock",
         "ItemQuantity": 2500,
-        "WarehouseId": 6,
+        "ItemWarehouseId": 6,
         "ItemWarehouse": "Seattle"
     },
     {
@@ -527,7 +527,7 @@
         "itemCategory": "Health",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 6,
+        "ItemWarehouseId": 6,
         "ItemWarehouse": "Seattle"
     },
     {
@@ -536,7 +536,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "In Stock",
         "ItemQuantity": 1300,
-        "WarehouseId": 7,
+        "ItemWarehouseId": 7,
         "ItemWarehouse": "Miami"
     },
     {
@@ -545,7 +545,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 7,
+        "ItemWarehouseId": 7,
         "ItemWarehouse": "Miami"
     },
     {
@@ -554,7 +554,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 7,
+        "ItemWarehouseId": 7,
         "ItemWarehouse": "Miami"
     },
     {
@@ -563,7 +563,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "In Stock",
         "ItemQuantity": 298,
-        "WarehouseId": 7,
+        "ItemWarehouseId": 7,
         "ItemWarehouse": "Miami"
     },
     {
@@ -572,7 +572,7 @@
         "itemCategory": "Health",
         "ItemStatus": "In Stock",
         "ItemQuantity": 2888,
-        "WarehouseId": 7,
+        "ItemWarehouseId": 7,
         "ItemWarehouse": "Miami"
     },
     {
@@ -581,7 +581,7 @@
         "itemCategory": "Electronics",
         "ItemStatus": "In Stock",
         "ItemQuantity": 983,
-        "WarehouseId": 7,
+        "ItemWarehouseId": 7,
         "ItemWarehouse": "Miami"
     },
     {
@@ -590,7 +590,7 @@
         "itemCategory": "Gear",
         "ItemStatus": "In Stock",
         "ItemQuantity": 1406,
-        "WarehouseId": 7,
+        "ItemWarehouseId": 7,
         "ItemWarehouse": "Miami"
     },
     {
@@ -599,7 +599,7 @@
         "itemCategory": "Apparel",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 7,
+        "ItemWarehouseId": 7,
         "ItemWarehouse": "Miami"
     },
     {
@@ -608,7 +608,7 @@
         "itemCategory": "Accessories",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 7,
+        "ItemWarehouseId": 7,
         "ItemWarehouse": "Miami"
     },
     {
@@ -617,7 +617,7 @@
         "itemCategory": "Health",
         "ItemStatus": "Out of Stock",
         "ItemQuantity": 0,
-        "WarehouseId": 7,
+        "ItemWarehouseId": 7,
         "ItemWarehouse": "Miami"
     }
 ]
