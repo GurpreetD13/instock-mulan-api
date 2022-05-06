@@ -3,7 +3,7 @@
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
-  module.exports = {
+ const connections = {
   client: "mysql",
   connection: {
     host: "127.0.0.1",
