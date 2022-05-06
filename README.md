@@ -1,7 +1,7 @@
 
 # InStock - Server Side
 
-InStock is an inventory management system for a warehouse distribution chain that manages a growing list of warehouses. The Front End is built with React.js and styled with SASS. The Back End is built with Node and Express using MVC architecture. Data is persisted in a MySQL database, using Knex.js to interface with the DB. The application is fully responsive and will work well with screens of any sizes ranging from 320px in width and higher. 
+InStock is an inventory management system for a warehouse distribution chain that manages a growing list of warehouses. This project is a collaborative project built by 4 highly ambitious Web Developers using Agile methodology, daily scrums and a Jira board for tracking progress and bugs. The Front End is built with React.js and styled with SASS. The Back End is built with Node and Express using MVC architecture. Data is persisted in a MySQL database, using Knex.js to interface with the DB. The application is fully responsive and will work well with screens of any sizes ranging from 320px in width and higher. 
 
 ## Tech Stack
 
@@ -38,7 +38,7 @@ To run the server side locally, clone the project
 Go to the project directory
 
 ```bash
-  cd instock-mulan
+  cd instock-mulan-api
 ```
 
 Install dependencies
@@ -56,11 +56,11 @@ Start the server
 
 ## Connecting to the Database and seeding data
 
-In order to connect the application to the databse, Knex.js will be used. This library allows querying the SQL database using JavaScript syntax.
+In order to connect the application to the databse, Knex. will be used. This library allows querying the SQL database using JavaScript syntax.
 
 First install Knex.js if it has not yet been installed:
 
-```http
+```bash
   npm install Knex --save
 ```
 
@@ -68,13 +68,13 @@ After installing Knex, a database named **instock** must be created inside of yo
 
 Once the database has been created, run the latest migration file to build the database table. To do this run the command as follows:
 
-```http
+```bash
   knex migrate:latest
 ```
 
 Once the tables have been created we can seed them to populate the tables with data. To do this run:
 
-```http
+```bash
   knex seed:run
 ```
 
