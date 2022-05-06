@@ -50,6 +50,17 @@ Start the server
 ```
 
 
+## Connecting to the Database and seeding data
+
+In order to connect the application to the databse we will be using Knex.js This library allows us to query our SQL database by using JavaScript syntax.
+
+First we must install Knex.js if it has not yet been installed:
+
+```http
+  npm install knex --save
+```
+
+
 ## Tech Stack
 
 **Client:** React, SASS, Axios
