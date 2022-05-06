@@ -52,12 +52,26 @@ Start the server
 
 ## Connecting to the Database and seeding data
 
-In order to connect the application to the databse we will be using Knex.js This library allows us to query our SQL database by using JavaScript syntax.
+In order to connect the application to the databse, Knex.js will be used. This library allows querying the SQL database using JavaScript syntax.
 
-First we must install Knex.js if it has not yet been installed:
+First install Knex.js if it has not yet been installed:
 
 ```http
-  npm install knex --save
+  npm install Knex --save
+```
+
+After installing Knex, a database named **instock** must be created inside of your local MySQL connection.
+
+Once the database has been created, run the latest migration file to build the database table. To do this run the command as follows:
+
+```http
+  knex migrate:latest
+```
+
+Once the tables have been created we can seed them to populate the tables with data. To do this run:
+
+```http
+  knex seed:run
 ```
 
 
