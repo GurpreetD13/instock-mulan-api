@@ -1,8 +1,13 @@
 
 # InStock - Server Side
 
-InStock is an inventory management system for a warehouse distribution chain that manages a growing list of warehouses. This application is fully responsive and will work well with screens of any size. 
+InStock is an inventory management system for a warehouse distribution chain that manages a growing list of warehouses. The Front End is built with React.js and styled with SASS. The Back End is built with Node and Express using MVC architecture. Data is persisted in a MySQL database, using Knex.js to interface with the DB. The application is fully responsive and will work well with screens of any sizes ranging from 320px in width and higher. 
 
+## Tech Stack
+
+**Client:** [React](https://reactjs.org/), [SASS](https://sass-lang.com/), [Axios](https://axios-http.com/)
+
+**Server:** [Node](https://nodejs.dev/), [Express](https://expressjs.com/), [MySQL](https://www.mysql.com/), [Knex.js](http://knexjs.org/)
 
 ## Authors
 
@@ -10,7 +15,6 @@ InStock is an inventory management system for a warehouse distribution chain tha
 - [Gurpreet Dhaliwal](https://github.com/GurpreetD13)
 - [Ben Cartwright](https://github.com/b3nnyc)
 - [Charanpreet Chall](https://github.com/CharanpreetChall)
-
 
 
 ## Demo
@@ -74,10 +78,4 @@ Once the tables have been created we can seed them to populate the tables with d
   knex seed:run
 ```
 
-
-## Tech Stack
-
-**Client:** React, SASS, Axios
-
-**Server:** Node, Express, MySQL, Knex.js
 
